@@ -13,12 +13,11 @@ $(document).ready(function() {
     function init()
     {
         setBody();
-        scrollToAnchor();
+        setEvents();
         resizeWindow();
     }
 
-    function setBody()
-    {
+    function setBody() {
         var windowWidth = $(window).width();
 
 	    /*
@@ -41,83 +40,87 @@ $(document).ready(function() {
         */
     }
 
-    function resizeWindow()
-    {
+    function resizeWindow() {
         $(window).resize(function() {
             setBody();
         });
     }
 
-
-    function scrollToAnchor() {
-        //var globalMenu = $('#container_global nav ul li a');
-        var globalMenu = $("#about");
-        console.log(globalMenu[0].id);
-		globalMenu.click(moveEvent());
+	function setEvents() {
+		var nav = document.getElementById("nav_list");
+		var a_elems = nav.getElementsByTagName("a");
 		
-		function moveEvent() {
-		  alert("test");
+		alert(a_elems.length);
+		alert(nav);
+		for (i = 0; i < a_elems.length; i++) {
+			alert(a_elems[i]);
+			//a_elems[i].addEventListener("click", scrollToAnchor, false);
 		}
 		
-                	/*
+		for(var i=0; i<a_elems.legth; i++) {
+			console.log(i);
+			//alert(a_elems[i]);
 
-        globalMenu.click(function() {
-        	        console.log("ok2");
-        	alert(globalMenu[0].id);
-        	
-            var anchor  = $(this).attr('href');
-            var tgtContent = anchor.match(/^#(.+?)$/);
-            var tgtCode = '';
-            var code    = '';
-            var sName   = '';
-            var tgt     = [];
-            var objTgt  = null;
-            var pTop    = 0;
-            var pLeft   = 0;
+			//a_elems[i].addEventListener("click", scrollToAnchor(), false);
+		};
+	}	
 
-            if (tgtContent) {
-              tgtCode = tgtContent[1];
-            }
-            for(var i=0; i<tgtContent.length; i++) {
-              console.log(tgtContent[i]);
-            };
-
-            tgt = tgtCode.split('_');
-            if (tgt[1]) {
-                code  = tgt[0] + '_';
-                sName = tgt[1];
-            } else {
-                code = tgt[0];
-            }
-            objTgt = $('a[name="' + code + sName + '"]');
-
-            if (code.indexOf('top') > -1) {
-                pTop = 0;
-            } else {
-                pTop = parseInt(Math.ceil(objTgt.position().top));
-            }
-
-            if (sName == '') {
-                pLeft = shopLeft[0];
-            } else if (sName == 'sora') {
-                pLeft = shopLeft[1];
-            } else {
-                pLeft = shopLeft[2];
-            }
-
-            $('html,body').animate({
-                scrollTop: pTop,
-                scrollLeft: pLeft
-            }, {
-                duration: SCROLL_TIME,
-                easing: 'easeOutCubic',
-                queue: false
-            });
-
-            return false;
-        });
-                    */
-
+    function scrollToAnchor() {
+		console.log("ok2");
+		
+		var anchor  = $(this).attr('href');
+		alert($(this).href);
+		var tgtContent = anchor.match(/^#(.+?)$/);
+		var tgtCode = '';
+		var code    = '';
+		var sName   = '';
+		var tgt     = [];
+		var objTgt  = null;
+		var pTop    = 0;
+		var pLeft   = 0;
+		
+		/*
+		if (tgtContent) {
+		  tgtCode = tgtContent[1];
+		}
+		for(var i=0; i<tgtContent.length; i++) {
+		  console.log(tgtContent[i]);
+		};
+		
+		tgt = tgtCode.split('_');
+		if (tgt[1]) {
+		    code  = tgt[0] + '_';
+		    sName = tgt[1];
+		} else {
+		    code = tgt[0];
+		}
+		objTgt = $('a[name="' + code + sName + '"]');
+		
+		if (code.indexOf('top') > -1) {
+		    pTop = 0;
+		} else {
+		    pTop = parseInt(Math.ceil(objTgt.position().top));
+		}
+		
+		if (sName == '') {
+		    pLeft = shopLeft[0];
+		} else if (sName == 'sora') {
+		    pLeft = shopLeft[1];
+		} else {
+		    pLeft = shopLeft[2];
+		}
+		
+		$('html,body').animate({
+		    scrollTop: pTop,
+		    scrollLeft: pLeft
+		}, {
+		    duration: SCROLL_TIME,
+		    easing: 'easeOutCubic',
+		    queue: false
+		});
+		
+		return false;
+		*/
     }
 
 });
