@@ -7,6 +7,7 @@
 $(document).ready(function() {
 
     var shops     = $('div.container_shop');
+    var SCROLL_TIME       = 700;
 
     init();
 
@@ -48,28 +49,48 @@ $(document).ready(function() {
 
 	function setEvents() {
 		var nav = document.getElementById("nav_list");
+		var about = document.getElementById("about");
 		var a_elems = nav.getElementsByTagName("a");
 		
 		alert(a_elems.length);
-		alert(nav);
 		for (i = 0; i < a_elems.length; i++) {
 			alert(a_elems[i]);
-			//a_elems[i].addEventListener("click", scrollToAnchor, false);
+			a_elems[i].addEventListener("click", scrollToAnchor, false);
 		}
 		
-		for(var i=0; i<a_elems.legth; i++) {
-			console.log(i);
-			//alert(a_elems[i]);
-
-			//a_elems[i].addEventListener("click", scrollToAnchor(), false);
-		};
 	}	
-
     function scrollToAnchor() {
-		console.log("ok2");
+    	var pTop = 0;
+    	var pLeft = 0;
+		var mTop = [0, 1000, 2000];
+		var mLeft = [0, 1100, 2200];		
 		
 		var anchor  = $(this).attr('href');
-		alert($(this).href);
+		pLeft = mLeft[1];
+				
+		$('html,body').animate({
+		    scrollTop: pTop,
+		    scrollLeft: pLeft
+		}, {
+		    duration: SCROLL_TIME,
+		    easing: 'easeOutCubic',
+		    queue: false
+		});
+		
+		return false;
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		/*		
 		var tgtContent = anchor.match(/^#(.+?)$/);
 		var tgtCode = '';
 		var code    = '';
@@ -79,7 +100,7 @@ $(document).ready(function() {
 		var pTop    = 0;
 		var pLeft   = 0;
 		
-		/*
+		
 		if (tgtContent) {
 		  tgtCode = tgtContent[1];
 		}
@@ -94,6 +115,7 @@ $(document).ready(function() {
 		} else {
 		    code = tgt[0];
 		}
+
 		objTgt = $('a[name="' + code + sName + '"]');
 		
 		if (code.indexOf('top') > -1) {
@@ -122,7 +144,6 @@ $(document).ready(function() {
 		return false;
 		*/
     }
-
 });
 
 })(jQuery);
