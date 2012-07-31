@@ -1,0 +1,20 @@
+@charset "utf-8";
+/* CSS Document */
+
+body { }
+
+#container_global { text-align: left; height:1000px; z-index:2;}
+nav { position:fixed; }
+/*--------about*/
+#container_about{width:1100px; height: 1000px; position: absolute; top:0; left:0; z-index:100; background-color: black; opacity : 0.3;}
+#container_about_in{width:1002px; z-index:100; margin:200px 0 0 100px; background-color: green; }
+
+/*--------works*/
+#container_works{width:1100px; ;height: 1000px; position: absolute;top:0; left:1100px; z-index:100; background-color : blue; opacity : 0.3;}
+#container_works_in{width:1002px; z-index:100; margin:0 0 0 100px; background-color: red;}
+
+/*--------members*/
+#container_members{width:1100px; ;height: 1000px; position: absolute;top:0; left:2200px; z-index:100; background-color : red; opacity : 0.3;}
+#container_members_in{width:1002px; z-index:100; margin:0 0 0 100px; background-color: red;}
+
+/*--------contact*/
