@@ -3,20 +3,14 @@
 
 body { }
 
-#container_global { text-align: left; height:1000px; z-index:1;}
-nav { position:fixed; z-index:200;}
+#container_global { text-align: left; z-index:1;}
+#container_fixed { position:fixed; top: 30px; width: 1200px; height: 200px; z-index: 200;}
+/*header { height: 200px; margin: 10px auto 10px; border: solid 1px;}*/
+nav { margin: 10px auto 10px;  border: solid 1px;}
 
+.container_each { position: absolute; left:0; z-index:100; /*background-image: url("../src/ptn.png"); background-repeat : repeat;*/}
+.container_each_in { position: relative;  margin: 200px auto 0; border: solid 1px; }
 
-/*--------about*/
-#container_about{width:1100px; height: 1000px; position: absolute; top:0; left:0; z-index:100; background-color: green;}
-#container_about_in{width:1002px; z-index:100; margin:200px 0 0 100px; background-color: green; }
-
-/*--------works*/
-#container_works{width:1100px; height: 1000px; position: absolute;top:0; left:1100px; z-index:100; background-color : blue; opacity : 0.3;}
-#container_works_in{width:1002px; z-index:100; margin:0 0 0 100px; background-color: red;}
-
-/*--------members*/
-#container_members{width:1100px; height: 1000px; position: absolute;top:0; left:2200px; z-index:100; background-color : red; opacity : 0.3;}
-#container_members_in{width:1002px; z-index:100; margin:0 0 0 100px; background-color: red;}
-
-/*--------contact*/
+#about {background-color:black;}
+#works {background-color:blue;}
+#members {background-color:red;}

@@ -6,8 +6,9 @@
 
 $(document).ready(function() {
 
-    var shops     = $('div.container_shop');
-    var SCROLL_TIME       = 700;
+    var SCROLL_TIME = 1000;
+    var pageWidth = $(window).width();
+	var pageHeight = 1500;
 
     init();
 
@@ -19,26 +20,31 @@ $(document).ready(function() {
     }
 
     function setBody() {
-        var windowWidth = $(window).width();
+    	var width_header = Number($('#container_fixed').css("width").replace("px", ""));
+    	var pos_header = Math.ceil(pageWidth / 2 -  width_header/ 2);
+		$("#container_fixed").css({
+			left : pos_header + "px",
+		});
+    	
+    	var pages = document.getElementsByClassName("container_each");
+    	var inner_Height = pageHeight - 300;
+    	var inner_Width = width_header;
+		var pos_y;
 
-	    /*
-        var maxHeight = 0;
-        shops.each(function(idx) {
-            var curHeight = $(this).height();
-            if (maxHeight == 0) {
-                maxHeight = curHeight;
-            } else {
-                if (maxHeight < curHeight) {
-                    maxHeight = curHeight;
-                }
-            }
-            if (idx == shops.size() - 1) {
-                for (var i = 0; i < shops.size(); i++) {
-                    $('#container_' + shopName[i] + '_in').height(maxHeight + 16);
-                }
-            }
-        });
-        */
+		$(".container_each").css({
+			width : pageWidth + "px",
+			height : pageHeight + "px"
+		});
+		$(".container_each_in").css({
+			width : inner_Width + "px",
+			height : inner_Height + "px"
+		});
+
+
+		for(var i=0; i < pages.length; i++) {
+			pos_y = pageHeight * i;
+			pages[i].style.top = pos_y + "px";
+		}
     }
 
     function resizeWindow() {
@@ -52,9 +58,7 @@ $(document).ready(function() {
 		var about = document.getElementById("about");
 		var a_elems = nav.getElementsByTagName("a");
 		
-		alert(a_elems.length);
 		for (i = 0; i < a_elems.length; i++) {
-			alert(a_elems[i]);
 			a_elems[i].addEventListener("click", scrollToAnchor, false);
 		}
 		
@@ -62,11 +66,22 @@ $(document).ready(function() {
     function scrollToAnchor() {
     	var pTop = 0;
     	var pLeft = 0;
-		var mTop = [0, 1000, 2000];
-		var mLeft = [0, 1100, 2200];		
 		
 		var anchor  = $(this).attr('href');
-		pLeft = mLeft[1];
+		switch(anchor) {
+			case '#works':
+				pTop = pageHeight * 1;
+				break;
+			case '#members':
+				pTop = pageHeight * 2;
+				break;
+			case '#contact':
+				pTop = pageHeight * 3;
+				break;
+			default :
+				pTop = 0;
+				break;
+		}
 				
 		$('html,body').animate({
 		    scrollTop: pTop,
@@ -79,70 +94,6 @@ $(document).ready(function() {
 		
 		return false;
 		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		/*		
-		var tgtContent = anchor.match(/^#(.+?)$/);
-		var tgtCode = '';
-		var code    = '';
-		var sName   = '';
-		var tgt     = [];
-		var objTgt  = null;
-		var pTop    = 0;
-		var pLeft   = 0;
-		
-		
-		if (tgtContent) {
-		  tgtCode = tgtContent[1];
-		}
-		for(var i=0; i<tgtContent.length; i++) {
-		  console.log(tgtContent[i]);
-		};
-		
-		tgt = tgtCode.split('_');
-		if (tgt[1]) {
-		    code  = tgt[0] + '_';
-		    sName = tgt[1];
-		} else {
-		    code = tgt[0];
-		}
-
-		objTgt = $('a[name="' + code + sName + '"]');
-		
-		if (code.indexOf('top') > -1) {
-		    pTop = 0;
-		} else {
-		    pTop = parseInt(Math.ceil(objTgt.position().top));
-		}
-		
-		if (sName == '') {
-		    pLeft = shopLeft[0];
-		} else if (sName == 'sora') {
-		    pLeft = shopLeft[1];
-		} else {
-		    pLeft = shopLeft[2];
-		}
-		
-		$('html,body').animate({
-		    scrollTop: pTop,
-		    scrollLeft: pLeft
-		}, {
-		    duration: SCROLL_TIME,
-		    easing: 'easeOutCubic',
-		    queue: false
-		});
-		
-		return false;
-		*/
     }
 });
 
