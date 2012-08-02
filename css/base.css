@@ -2,15 +2,49 @@
 /* CSS Document */
 
 body { }
+.clearfix:after { content: ""; display: block; clear: both; }
 
 #container_global { text-align: left; z-index:1;}
-#container_fixed { position:fixed; top: 30px; width: 1200px; height: 200px; z-index: 200;}
+.container_each { position: absolute; left:0; z-index:100; background-image: url("../src/ptn.png"); background-repeat : repeat;}
+.container_each_in { position: relative;  margin: 135px auto 0; }
+.main_image { margin: 0 auto 5px; display: block; }
+.contents { margin: 0 30px 0 20px; /*border: solid 1px black;*/ }
+
+#container_fixed { position:fixed; top: 80px; width: 886px; height: 200px; z-index: 200;}
 /*header { height: 200px; margin: 10px auto 10px; border: solid 1px;}*/
-nav { margin: 10px auto 10px;  border: solid 1px;}
+nav { margin: 10px auto 10px;}
+#menu_about, #menu_works { float: left; margin: 0 30px 0 10px; }
+#menu_members, #menu_contact { float: right; margin: 0 10px 0 30px; }
 
-.container_each { position: absolute; left:0; z-index:100; /*background-image: url("../src/ptn.png"); background-repeat : repeat;*/}
-.container_each_in { position: relative;  margin: 200px auto 0; border: solid 1px; }
+.color_bg {
+	background-image: url("../src/ptn3.png"); 
+	background-repeat : repeat;
+	border-radius: 6px;
+    -webkit-border-radius: 6px;  
+    -moz-border-radius: 6px; 
+	/*opacity: .1; filter: alpha(opacity=10); -ms-filter: "alpha(opacity=75)"; -khtml-opacity: .1; -moz-opacity: .1;*/
+}
 
-#about {background-color:black;}
-#works {background-color:blue;}
-#members {background-color:red;}
+/*******************/
+li { list-style: none; }
+h2, h3, p, li { font-family: "メイリオ", "Meiryo", "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "ＭＳ ゴシック", "Osaka", sans-serif; color: #222; }
+h2 { font-size: 25px; line-height: 50px; /*font-weight: lighter;*/ margin: 30px 0 5px 5px;}
+p, li { font-size: 15px; line-height: 30px; color: #555; }
+p { margin: 0 0 0 20px; text-indent: 1em;}
+
+/*************about*/
+#purpose_list { margin: 0 0 0 20px; }
+#purpose_list li { /*color: gray;*/ }
+h3.concept_description { height: 100px; line-height: 100px; font-size: 25px; font-weight: lighter; text-align: center; }
+
+/*************amembers*/
+.work_each { margin: 0 0 50px 0; }
+.work_image { float: left; }
+.work_result { margin: 0 0 0 20px; float: right;}
+.work_name { color: #222; font-size: 20px; width: 150px; text-align: center; }
+.work_description { font-size: 15px; /*color: gray;*/ margin: 5px 0 0 20px; }
+
+/*************amembers*/
+li#member_list ul { float: left; height: 100px;  margin: 0 10px 20px 5px; }
+.name { color: #222; font-size: 20px; width: 150px; text-align: center; }
+.personal { font-size: 15px; /*color: gray;*/ margin: 5px 0 0 20px; }
