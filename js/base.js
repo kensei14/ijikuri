@@ -83,6 +83,8 @@ $(document).ready(function() {
     	var pTop = 0;
     	var pLeft = 0;
 		
+		event.preventDefault();
+
 		var anchor  = $(this).attr('href');
 		switch(anchor) {
 			case '#works':
@@ -109,9 +111,47 @@ $(document).ready(function() {
 		    easing: 'easeOutCubic',
 		    queue: false
 		});
-		
 		return false;
-		
+    }
+    
+   	var fade1 = false;    
+   	var fade2 = false;    
+    window.onscroll = function() {
+    	var scroll = document.body.scrollTop || document.documentElement.scrollTop;
+    	var rate;
+
+    	
+    	/*
+		if (scroll < 1200) { rate = 1.0; }
+    	else if ((scroll > 1200) && (scroll < 1300)) {
+    		rate = (scroll - 1200) / 100;
+			rate = 1.0 - rate;
+    	}
+    	else { rate = 0.01; }
+    	*/
+    	
+    	if ((scroll > 1200) && !fade1) {
+	    	console.log("scroll = " + scroll + "  rate :  " + rate);
+	    	fade1 = true;
+			$("#bg1").fadeTo(1000, 0.0, function() { console.log("ok");}) ;    		
+    	}
+    	else if ((scroll < 1200) && fade1) {
+	    	console.log("scroll = " + scroll + "  rate :  " + rate);
+	    	fade1 = false;
+			$("#bg1").fadeTo(1000, 1.0, function() { console.log("ok");}) ;    		
+    	}
+    	
+    	if ((scroll > 2700) && !fade2) {
+	    	console.log("scroll = " + scroll + "  rate :  " + rate);
+	    	fade2 = true;
+			$("#bg2").fadeTo(1000, 0.0, function() { console.log("ok");}) ;    		    		
+    	}
+		else if ((scroll < 2700) && fade2) {
+	    	console.log("scroll = " + scroll + "  rate :  " + rate);
+	    	fade2 = false;
+			$("#bg2").fadeTo(1000, 1.0, function() { console.log("ok");}) ;    		
+    	}
+
     }
 });
 
