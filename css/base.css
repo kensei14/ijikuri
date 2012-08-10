@@ -1,20 +1,36 @@
 @charset "utf-8";
 /* CSS Document */
 
+img.bg {
+  /* Set rules to fill background */
+  min-height: 100%;
+  min-width: 1024px;
+  /* Set up proportionate scaling */
+  width: 100%;
+  height: auto;
+  /* Set up positioning */
+  position: fixed;
+  /* またはabsolute; */
+  top: 0;
+  left: 0;
+}
+
+
 body { }
 .clearfix:after { content: ""; display: block; clear: both; }
 
-#container_global { text-align: left; z-index:1;}
-.container_each { position: absolute; left:0; z-index:100; background-image: url("../src/ptn.png"); background-repeat : repeat;}
-.container_each_in { position: relative;  margin: 135px auto 0; }
-.main_image { margin: 0 auto 5px; display: block; }
-.contents { margin: 0 30px 0 20px; /*border: solid 1px black;*/ }
+#container_global { position: relative; text-align: left; width: 886px; z-index:1; }
+.container_each {  position: absolute;  z-index:100; /*left:0;background-image: url("../src/ptn.png"); background-repeat : repeat;*/}
+.contents { margin: 0 auto 0; }
 
-#container_fixed { position:fixed; top: 80px; width: 886px; height: 200px; z-index: 200;}
+/*#container_fixed { position:fixed; top: 80px; width: 886px; height: 200px; z-index: 200;}*/
 /*header { height: 200px; margin: 10px auto 10px; border: solid 1px;}*/
 nav { margin: 10px auto 10px;}
+#nav_list { position: relative; margin: 100px auto 0; }
 #menu_about, #menu_works { float: left; margin: 0 30px 0 10px; }
 #menu_members, #menu_contact { float: right; margin: 0 10px 0 30px; }
+
+.main_image { margin: 0 auto 5px; display: block; }
 
 .color_bg {
 	background-image: url("../src/ptn3.png"); 
