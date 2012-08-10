@@ -2,12 +2,14 @@
  * @author Mack
  */
 
-(function($) {
+//(function($) {
 
 $(document).ready(function() {
 
     var SCROLL_TIME = 1000;
-    var pageWidth = $(window).width();
+    //var pageWidth = $(window).width() || 1000;
+    var pageWidth;
+    
 	var pageHeight = 1500;
 
     init();
@@ -22,6 +24,7 @@ $(document).ready(function() {
     function setBody() {
     	var width_header = Number($('#container_fixed').css("width").replace("px", ""));
     	var pos_header = Math.ceil(pageWidth / 2 -  width_header/ 2);
+    	
 		$("#container_fixed").css({
 			left : pos_header + "px",
 		});
@@ -39,7 +42,25 @@ $(document).ready(function() {
 			width : inner_Width + "px",
 			height : inner_Height + "px"
 		});
-
+		$(".contents").css({
+			width : inner_Width - 40 + "px",
+			height : inner_Height  - 100 + "px"
+		});
+		var contents = document.getElementsByClassName("contents");
+		for(var i=0; i<contents.length; i++) {
+			//alert(contents[i].childNodes[0]);
+			//console.log(contents[i].childNodes[0]);
+		}		
+		var work_imgs = $(".work_image");
+		var work_rslts = $(".work_result");
+		for(var i=0; i<work_imgs.length; i++) {
+			if(work_imgs[i].width == 0) { work_rslts[i].style.width = 550 + "px"; }
+			else { work_rslts[i].style.width = (inner_Width - work_imgs[i].width - 100) + "px"; }
+		}
+		
+		$("#member_list ul").css({
+			width : Math.ceil(inner_Width / 2 - 50) + "px"
+		});
 
 		for(var i=0; i < pages.length; i++) {
 			pos_y = pageHeight * i;
@@ -97,4 +118,4 @@ $(document).ready(function() {
     }
 });
 
-})(jQuery);
+//})(jQuery);
