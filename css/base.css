@@ -26,9 +26,9 @@ body { }
 /*#container_fixed { position:fixed; top: 80px; width: 886px; height: 200px; z-index: 200;}*/
 /*header { height: 200px; margin: 10px auto 10px; border: solid 1px;}*/
 nav { margin: 10px auto 10px;}
-#nav_list { position: relative; margin: 100px auto 0; height: 70px;}
-#menu_about, #menu_works { float: left; margin: 0 30px 0 10px; }
-#menu_members, #menu_contact { float: right; margin: 0 10px 0 30px; }
+.nav_list { position: relative; margin: 100px auto 0; height: 70px;}
+.menu_about, .menu_works { float: left; margin: 0 30px 0 10px; }
+.menu_members, .menu_contact { float: right; margin: 0 10px 0 30px; }
 
 .main_image { margin: 0 auto 5px; display: block; }
 

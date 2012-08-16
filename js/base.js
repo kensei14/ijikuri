@@ -70,16 +70,20 @@ $(document).ready(function() {
     }
 
 	function setEvents() {
-		var nav = document.getElementById("nav_list");
-		var about = document.getElementById("about");
-		var a_elems = nav.getElementsByTagName("a");
+		var nav = document.getElementsByClassName("nav_list");
+		//var about = document.getElementsClassName("about");
+		var a_elems;
 		
-		for (i = 0; i < a_elems.length; i++) {
-			a_elems[i].addEventListener("click", scrollToAnchor, false);
-		}
-		
+		console.log(nav.length);
+		for (var i = 0; i < nav.length; i++) {
+			a_elems = nav[i].getElementsByTagName("a");
+			for (var j = 0; j < a_elems.length; j++) {
+				a_elems[j].addEventListener("click", scrollToAnchor, false);
+			}			
+		}		
 	}	
-    function scrollToAnchor() {
+	
+    function scrollToAnchor(event) {
     	var pTop = 0;
     	var pLeft = 0;
 		
@@ -119,16 +123,6 @@ $(document).ready(function() {
     window.onscroll = function() {
     	var scroll = document.body.scrollTop || document.documentElement.scrollTop;
     	var rate;
-
-    	
-    	/*
-		if (scroll < 1200) { rate = 1.0; }
-    	else if ((scroll > 1200) && (scroll < 1300)) {
-    		rate = (scroll - 1200) / 100;
-			rate = 1.0 - rate;
-    	}
-    	else { rate = 0.01; }
-    	*/
     	
     	if ((scroll > 1200) && !fade1) {
 	    	console.log("scroll = " + scroll + "  rate :  " + rate);
